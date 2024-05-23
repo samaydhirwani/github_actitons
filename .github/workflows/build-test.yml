@@ -30,7 +30,11 @@ jobs:
           # Add this if you have a requirements.txt
           # if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      # Step 4: Run tests
+      # Step 4: Set PYTHONPATH
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)/notes-test/src" >> $GITHUB_ENV
+
+      # Step 5: Run tests
       - name: Run tests
         run: |
-          python -m unittest discover -s notes-test/src/tests -p 'test_app.py'
+          python -m unittest discover -s notes-test/src/test -p '*.py'
