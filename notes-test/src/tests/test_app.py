@@ -1,6 +1,6 @@
 
 import unittest
-from notes-test/src.main.app import add, subtract
+from main.app import add, subtract
 
 class TestApp(unittest.TestCase):
 
